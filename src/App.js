@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import CardList from "./components/CardList";
+import { robots } from "./robots";
+import SearchBox from "./components/SearchBox";
+import Scroll from "./components/Scroll";
 
-function App() {
+export default function App() {
+  const [robots, setRobots] = useState([]);
+  const [searchField, setSearchField] = useState("");
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      .then((users) => {
+        setRobots(users);
+      });
+  }, []);
+
+  function onSearchChange(e) {
+    setSearchField(e.target.value);
+  }
+  // function handleChange(event) {
+  //   let value = event.target.value;
+  //   console.log(value);
+  //   setRobots(value);
+  // }
+  const filteredRobots = robots.filter((robot) => {
+    return robot.name.toLowerCase().includes(searchField.toLowerCase());
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Robo Friends</h1>
+      <SearchBox onSearchChange={onSearchChange} />
+      <Scroll>
+        <CardList robots={filteredRobots} />
+      </Scroll>
     </div>
   );
 }
-
-export default App;
