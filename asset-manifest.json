@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/roboreact/static/css/main.0529b3c1.css",
+    "main.js": "/roboreact/static/js/main.59e3962a.js",
+    "static/js/787.da8d922d.chunk.js": "/roboreact/static/js/787.da8d922d.chunk.js",
+    "index.html": "/roboreact/index.html",
+    "main.0529b3c1.css.map": "/roboreact/static/css/main.0529b3c1.css.map",
+    "main.59e3962a.js.map": "/roboreact/static/js/main.59e3962a.js.map",
+    "787.da8d922d.chunk.js.map": "/roboreact/static/js/787.da8d922d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0529b3c1.css",
+    "static/js/main.59e3962a.js"
+  ]
+}
